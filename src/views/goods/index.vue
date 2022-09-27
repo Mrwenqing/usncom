@@ -104,37 +104,37 @@ export default {
       dialogFormItem: [
         {
           label: "商品名称",
-          type: "input",
+          type: "text",
           prop: "name",
         },
         {
           label: "商品编码",
-          type: "input",
+          type: "text",
           prop: "code",
         },
         {
           label: "商品规格",
-          type: "input",
+          type: "text",
           prop: "spec",
         },
         {
           label: "零售价",
-          type: "input",
+          type: "text",
           prop: "retailPrice",
         },
         {
           label: "进货价",
-          type: "input",
+          type: "text",
           prop: "purchasePrice",
         },
         {
           label: "库存数量",
-          type: "date",
+          type: "text",
           prop: "storageNum",
         },
         {
           label: "供应商",
-          type: "date",
+          type: "text",
           prop: "supplierName",
         },
       ],

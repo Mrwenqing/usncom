@@ -96,27 +96,27 @@ export default {
       dialogFormItem: [
         {
           label: "账号",
-          type: "input",
+          type: "text",
           prop: "username",
         },
         {
           label: "姓名",
-          type: "input",
+          type: "text",
           prop: "name",
         },
         {
           label: "年龄",
-          type: "input",
+          type: "text",
           prop: "age",
         },
         {
           label: "电话",
-          type: "input",
+          type: "text",
           prop: "mobile",
         },
         {
           label: "薪酬",
-          type: "input",
+          type: "text",
           prop: "salary",
         },
         {

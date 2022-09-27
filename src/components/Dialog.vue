@@ -4,7 +4,7 @@
 			<template v-for="(item,index) in dialogFormItem">
 				<el-form-item v-bind="item" :label="item.label">
 					<el-input  v-if="item.type=='date'" :type="item.type" v-model="value[item.prop]" autocomplete="off"></el-input>
-					<el-input  v-if="item.type=='input'" :type="item.type" v-model="value[item.prop]" autocomplete="off"></el-input>
+					<el-input  v-if="item.type=='text'" :type="item.type" v-model="value[item.prop]" autocomplete="off"></el-input>
 				</el-form-item>
 			</template>
 		</el-form>

@@ -94,22 +94,22 @@ export default {
       dialogFormItem: [
         {
           label: "供应商名称",
-          type: "input",
+          type: "text",
           prop: "name",
         },
         {
           label: "联系人",
-          type: "input",
+          type: "text",
           prop: "linkman",
         },
         {
           label: "联系电话",
-          type: "input",
+          type: "text",
           prop: "mobile",
         },
         {
           label: "备注",
-          type: "input",
+          type: "text",
           prop: "remark",
         },
       ],
