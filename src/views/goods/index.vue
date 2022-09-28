@@ -104,37 +104,37 @@ export default {
       dialogFormItem: [
         {
           label: "商品名称",
-          type: "text",
+          type: "input",
           prop: "name",
         },
         {
           label: "商品编码",
-          type: "text",
+          type: "input",
           prop: "code",
         },
         {
           label: "商品规格",
-          type: "text",
+          type: "input",
           prop: "spec",
         },
         {
           label: "零售价",
-          type: "text",
+          type: "input",
           prop: "retailPrice",
         },
         {
           label: "进货价",
-          type: "text",
+          type: "input",
           prop: "purchasePrice",
         },
         {
           label: "库存数量",
-          type: "text",
+          type: "input",
           prop: "storageNum",
         },
         {
           label: "供应商",
-          type: "text",
+          type: "input",
           prop: "supplierName",
         },
       ],
@@ -219,12 +219,12 @@ export default {
   methods: {
     async getGoodsList() {
       try {
-        const { rows, total } = await GoodsApi.getGoodsList(
+        const { rows, count } = await GoodsApi.getGoodsList(
           this.page,
           this.size,
           this.queryFormParams
         );
-        this.total = total;
+        this.total = count;
         this.GoodsList = rows;
       } catch (e) {
         //TODO handle the exception
@@ -303,6 +303,8 @@ export default {
       })
         .then(async () => {
           try {
+           	this.page = 1
+						this.handleReset()
             const response = await GoodsApi.deleteGoodsList(id);
             this.$message.success("删除成功");
             this.getGoodsList();

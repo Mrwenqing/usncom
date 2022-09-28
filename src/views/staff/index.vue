@@ -53,7 +53,7 @@
 <script>
 import StaffApi from "../../api/staff";
 export default {
-  name: "supplier",
+  name: "staff",
   components: {
     "i-table": () => import("../../components/baseTable"),
     "i-queryForm": () => import("../../components/queryForm"),
@@ -69,8 +69,8 @@ export default {
         username: "",
         age: "",
         mobile: "",
-		salary:'',
-		entryDate:''
+        salary: "",
+        entryDate: "",
       },
       dialogConfig: {
         title: "员工新增",
@@ -96,27 +96,27 @@ export default {
       dialogFormItem: [
         {
           label: "账号",
-          type: "text",
+          type: "input",
           prop: "username",
         },
         {
           label: "姓名",
-          type: "text",
+          type: "input",
           prop: "name",
         },
         {
           label: "年龄",
-          type: "text",
+          type: "input",
           prop: "age",
         },
         {
           label: "电话",
-          type: "text",
+          type: "input",
           prop: "mobile",
         },
         {
           label: "薪酬",
-          type: "text",
+          type: "input",
           prop: "salary",
         },
         {
@@ -131,20 +131,20 @@ export default {
       },
       rules: {},
       formItem: [
-		{
-			type:'input',
-			placeholder:'账号',
-			prop:'username'
-		},
-       {
-		type:'input',
-		placeholder:'姓名',
-		prop:'name'
-	   },
+        {
+          type: "input",
+          placeholder: "账号",
+          prop: "username",
+        },
+        {
+          type: "input",
+          placeholder: "姓名",
+          prop: "name",
+        },
         {
           type: "slot",
           slot_name: "query",
-        }
+        },
       ],
       total: 0,
       StaffList: [],
@@ -158,35 +158,30 @@ export default {
           sequence: true,
           width: "60",
         },
-       {
+        {
           label: "账号",
           prop: "username",
         },
         {
-         
           label: "姓名",
           prop: "name",
         },
         {
-         
           label: "年龄",
           prop: "age",
         },
-		{
-			
-			label:'电话',
-			prop:'mobile',
-		},
-		{
-		
-			label:'薪酬',
-			prop:'salary',
-		},
-		{
-			
-			label:'入职时间',
-			prop:'entryDate',
-		},
+        {
+          label: "电话",
+          prop: "mobile",
+        },
+        {
+          label: "薪酬",
+          prop: "salary",
+        },
+        {
+          label: "入职时间",
+          prop: "entryDate",
+        },
         {
           label: "操作",
           slot_name: "opteration",
@@ -201,12 +196,12 @@ export default {
   methods: {
     async getStaffList() {
       try {
-        const { rows, total } = await StaffApi.getStaffList(
+        const { rows, count } = await StaffApi.getStaffList(
           this.page,
           this.size,
           this.queryFormParams
         );
-        this.total = total;
+        this.total = count;
         this.StaffList = rows;
       } catch (e) {
         //TODO handle the exception
@@ -285,6 +280,8 @@ export default {
       })
         .then(async () => {
           try {
+            this.page = 1
+						this.handleReset()
             const response = await StaffApi.deleteStaffList(id);
             this.$message.success("删除成功");
             this.getStaffList();

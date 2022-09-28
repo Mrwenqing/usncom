@@ -4,7 +4,7 @@ import request from "../utils/request";
 const getStaffList = (page, size, data) => {
   return request({
     url: `/staff/list/search/${page}/${size}`,
-    method: "GET",
+    method: "POST",
     data,
   });
 };

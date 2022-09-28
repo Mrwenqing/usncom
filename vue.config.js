@@ -42,4 +42,6 @@ module.exports = defineConfig({
   },
   // 关闭eslint
   lintOnSave: false,
+  // 打包时不生成.map后缀的文件
+  productionSourceMap: false,
 });
